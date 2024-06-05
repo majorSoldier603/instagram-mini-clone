@@ -19,6 +19,7 @@ body {
     justify-content: space-between;
     padding-top: 40px;
     padding-left: 12px;
+    margin-top: 30px;
     border-right: 1px rgba(38, 38, 38, 1) solid;
 
     >section {
@@ -66,23 +67,126 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
-
-    >header {
+    >div {
         width: 45%;
-        margin-top: 30px;
         display: flex;
-        flex-direction: row;
-        gap: 4px;
-        p {
+        flex-direction: column;
+        max-width: 600px;
 
+        >header {
+            width: 100%;
+            margin-top: 30px;
+            display: flex;
+            flex-direction: row;
+            gap: 4px;
+            padding-bottom: 30px;
+            border-bottom: 1px rgba(38, 38, 38, 1) solid;
+            p {
+
+            }
         }
+    
+
+        >section {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            width: 100%;
+            margin-top: 24px;
+
+            div {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            img {
+                width: 56px;
+                height: 56px;
+                border-radius: 50%;
+            }
+        }
+    }
+}
+
+
+.mainContentImgs {
+    >article {
+
+        >div {
+            padding-top: 16px;
+            >img {
+                max-width: 500px;
+                max-height: 1200px;
+                width: unset;
+                height: unset;
+                border-radius: 0;
+            }
+
+            >div {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+
+                >div {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    >a {
+                        padding: 8px;
+                        >img {
+                            border-radius: 0;
+                            width: 30px;
+                            height: 30px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.mainContentImgsHead {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    
+    >img {
+        height: 32px !important;
+        width: 32px !important;
+    }
+
+    >p {
+        font-size: 14px;
+    }
+}
+
+.mainContentComments {
+    display: flex;
+    align-items: flex-start !important;
+    padding: 0 !important;
+    >h4 {
+        padding-left: 4px;
     }
 
     >section {
-        img {
-            width: 64px;
-            height: 64px;
-            border-radius: 50%;
+        width: 100%;
+        padding-left: 4px;
+        >article {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            >h3 {
+                padding-right: 4px;
+            }
+
+            >h4 {
+
+            }
         }
     }
 }
