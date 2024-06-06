@@ -1,13 +1,13 @@
 {
 	"UserData": [
-		{"userName": "Jonah Jameson", "profileimg": "./img/Jonah Jameson.png"},
-		{"userName": "angry pepe", "profileimg": "./img/pepe angry.png"},
-		{"userName": "funny pepe", "profileimg": "./img/pepe lul.png"},
-		{"userName": "Kekw", "profileimg": "./img/KekWait.png"},
-		{"userName": "LOL", "profileimg": "./img/LOL.png"},
-		{"userName": "Kekw Funny", "profileimg": "./img/KeKw.png"},
-		{"userName": "PEPE it´s fine", "profileimg": "./img/pepe its fine.png"},
-		{"userName": "pepe Reee", "profileimg": "./img/pepe reee.png"},
-		{"userName": "Cat Demon", "profileimg": "./img/Cat Screaming.png"}
+		{"userID": 0, "userName": "Jonah Jameson", "profileimg": "./img/Jonah Jameson.png"},
+		{"userID": 1, "userName": "angry pepe", "profileimg": "./img/pepe angry.png"},
+		{"userID": 2, "userName": "funny pepe", "profileimg": "./img/pepe lul.png"},
+		{"userID": 3, "userName": "Kekw", "profileimg": "./img/KekWait.png"},
+		{"userID": 4, "userName": "LOL", "profileimg": "./img/LOL.png"},
+		{"userID": 5, "userName": "Kekw Funny", "profileimg": "./img/KeKw.png"},
+		{"userID": 6, "userName": "PEPE it´s fine", "profileimg": "./img/pepe its fine.png"},
+		{"userID": 7, "userName": "pepe Reee", "profileimg": "./img/pepe reee.png"},
+		{"userID": 8, "userName": "Cat Demon", "profileimg": "./img/Cat Screaming.png"}
 	]
 }
