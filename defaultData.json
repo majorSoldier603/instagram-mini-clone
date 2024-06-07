@@ -1,4 +1,8 @@
 {
+	"LoginUser": [
+		{"userName": "Someone", "profileimg": "./img/36159594_427768211060637_1600053863845462016_n.jpg"}
+	],
+	
 	"UserData": [
 		{"userID": 0, "userName": "Jonah Jameson", "profileimg": "./img/Jonah Jameson.png"},
 		{"userID": 1, "userName": "angry pepe", "profileimg": "./img/pepe angry.png"},
@@ -9,5 +13,49 @@
 		{"userID": 6, "userName": "PEPE it´s fine", "profileimg": "./img/pepe its fine.png"},
 		{"userID": 7, "userName": "pepe Reee", "profileimg": "./img/pepe reee.png"},
 		{"userID": 8, "userName": "Cat Demon", "profileimg": "./img/Cat Screaming.png"}
+	],
+
+	"Recommended": [
+		{"userID": 9, "userName": "Pickle Rick", "profileimg": "./img/pickle.gif"},
+		{"userID": 10, "userName": "Happy Dog", "profileimg": "./img/Happy Dog.png"},
+		{"userID": 11, "userName": "Wubba Lubba Dub Dub", "profileimg": "./img/rick-and-morty-rick-sanchez.gif"}
+	],
+
+	"Posts": [
+		{"PostID": 0, "PostedBy": 3, "PostImg": "./img/KEWK.png", "isLiked": true, "Likes": 43, "createtAt": 1715070956000, "Comments":[
+			{"CommentID": 0, "CommentBy": 2, "Comment": "Press W LUL"}
+		]},
+
+		{"PostID": 1, "PostedBy": 5, "PostImg": "./img/Kekw LOL.png", "isLiked": true, "Likes": 67, "createtAt": 1707346496000, "Comments":[
+			{"CommentID": 0, "CommentBy": 2, "Comment": "Press W LUL"}
+		]},
+
+		{"PostID": 2, "PostedBy": 2, "PostImg": "./img/pepe-sip.gif", "isLiked": false, "Likes": 243, "createtAt": 1714339429000, "Comments":[
+			{"CommentID": 0, "CommentBy": 2, "Comment": "Press W LUL"}
+		]},
+
+		{"PostID": 3, "PostedBy": 8, "PostImg": "./img/Cat Screamings.png", "isLiked": false, "Likes": 4, "createtAt": 1714341143000, "Comments":[
+			{"CommentID": 0, "CommentBy": 2, "Comment": "Press W LUL"}
+		]},
+
+		{"PostID": 4, "PostedBy": 0, "PostImg": "./img/Jonah Jameson da.png", "isLiked": false, "Likes": 65, "createtAt": 1708014725000, "Comments":[
+			{"CommentID": 0, "CommentBy": 2, "Comment": "Press W LUL"}
+		]},
+
+		{"PostID": 5, "PostedBy": 4, "PostImg": "./img/lol.png", "isLiked": true, "Likes": 35, "createtAt": 1707032003000, "Comments":[
+			{"CommentID": 0, "CommentBy": 2, "Comment": "Press W LUL"}
+		]},
+
+		{"PostID": 6, "PostedBy": 7, "PostImg": "./img/pepe re.png", "isLiked": true, "Likes": 786, "createtAt": 1711384403000, "Comments":[
+			{"CommentID": 0, "CommentBy": 2, "Comment": "Press W LUL"}
+		]},
+
+		{"PostID": 7, "PostedBy": 1, "PostImg": "./img/reee-pepe.gif", "isLiked": false, "Likes": 324, "createtAt": 1722628043000, "Comments":[
+			{"CommentID": 0, "CommentBy": 2, "Comment": "Press W LUL"}
+		]},
+
+		{"PostID": 8, "PostedBy": 6, "PostImg": "./img/pepe fine.png", "isLiked": false, "Likes": 9, "createtAt": 1711437845000, "Comments":[
+			{"CommentID": 0, "CommentBy": 2, "Comment": "Press W LUL"}
+		]}
 	]
 }
