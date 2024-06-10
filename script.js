@@ -49,11 +49,42 @@ function isLike(isIt) {
 
 function returnComments(Current, UserData) {
 
-	htmlComment =`<h3>${UserData[Current.CommentBy].userName}</h3>`+`<h4>${Current.Comment}</h4>`
+	htmlComment =`<span><h3>${UserData[Current.CommentBy].userName}</h3>`+`<h4>${Current.Comment}</h4></span>`
 	
 	return htmlComment
 }
 
+function liken(index) {
+	let PostsData = JSON.parse(localStorage.getItem("Posts") || "[]");
+
+	likeimg = document.getElementById("likeimg" + index)
+	likeCounter = document.getElementById("likeCounter"+ index)
+	if (PostsData[index].isLiked) {
+		likeimg.src = "./img/favorite-3-64.png"
+		likeCounter.innerHTML = `Liked ${PostsData[index].Likes -1} Times`   
+	} else if (!PostsData[index].isLiked) {
+		likeimg.src = "./img/heart-69-64.png"
+		likeCounter.innerHTML = `Liked ${PostsData[index].Likes +1} Times`
+	}
+
+	addlikenDB(index, PostsData)
+}
+
+function addlikenDB(index, PostsData) {
+	if (PostsData[index].isLiked) {
+		PostsData[index].isLiked = false
+		cacheing = PostsData[index].Likes -1
+		PostsData[index].Likes = cacheing
+	} else if (!PostsData[index].isLiked) {
+		PostsData[index].isLiked = true
+		cacheing = PostsData[index].Likes +1
+		PostsData[index].Likes = cacheing
+	}
+
+	console.log(PostsData[index])
+	localStorage.setItem('Posts', JSON.stringify(PostsData))
+
+}
 
 function postComment(index) {
 	const UserData = JSON.parse(localStorage.getItem("UserData") || "[]");
@@ -61,7 +92,7 @@ function postComment(index) {
 	commentinput = document.getElementById("commentin" + index)
 	commentbnt = document.getElementById("commentbnt" + index)
 	commentsFromPost = document.getElementById("commentsFromPost" + index)
-	htmlString = `<h3>${UserData[0].userName}</h3><h4>${commentinput.value}</h4>`
+	htmlString = `<span><h3>${UserData[0].userName}</h3><h4>${commentinput.value}</h4></span>`
 
 	renderit(commentsFromPost, htmlString)
 	
@@ -142,7 +173,7 @@ function LoadPosts() {
 					<img src="${LoopData[index].PostImg}" alt="">
 					<div>
 						<div>
-							<a onclick=""><img src="./img/${isLike(LoopData[index].isLiked)}" alt=""></a>
+							<a onclick="liken(${index});"><img id="likeimg${index}" src="./img/${isLike(LoopData[index].isLiked)}" alt=""></a>
 							<a onclick=""><img src="./img/message-2-64.png" alt=""></a>
 							<a onclick=""><img src="./img/add-64.png" alt=""></a>
 						</div>

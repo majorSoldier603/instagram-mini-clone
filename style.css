@@ -66,12 +66,13 @@ body {
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
     >div {
-        width: 45%;
+        width: 100%;
         display: flex;
         flex-direction: column;
-        max-width: 600px;
+        align-items: center;
+        max-width: 640px;
 
         >header {
             width: 100%;
@@ -108,20 +109,24 @@ body {
                 height: 56px;
                 border-radius: 50%;
             }
+
+            h5 {
+                line-break: strict;
+                width: 56px;
+            }
         }
     }
 }
 
 
 .mainContentImgs {
+    max-width: 470px;
     >article {
-
+        margin-bottom: 64px;
         >div {
             padding-top: 16px;
             >img {
-                max-width: 500px;
-                max-height: 1200px;
-                width: unset;
+                width: 100%;
                 height: unset;
                 border-radius: 0;
             }
@@ -178,15 +183,22 @@ body {
         width: 100%;
         padding-left: 4px;
         >article {
+            gap: 5px;
             display: flex;
-            flex-direction: row;
-            align-items: center;
-            >h3 {
-                padding-right: 4px;
-            }
+            flex-direction: column;
+            align-items: flex-start;
 
-            >h4 {
-
+            >span {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                >h3 {
+                    padding-right: 6px;
+                }
+    
+                >h4 {
+                    padding-top: 2px;
+                }
             }
         }
     }
@@ -234,4 +246,36 @@ body {
         }
     }
 
+}
+
+@media (max-width: 1160px) {
+    .reconMenu {
+        display: none;
+    }
+}
+
+@media (max-width: 1264px) {
+    .d-none1264 {
+        display: none;
+    }
+    
+    #storys {
+        
+        overflow: hidden;
+        height: 1100px;
+        >div {
+
+        }
+    }
+
+    .mainContent {
+        > div {
+            > section {
+                >img {
+                    width: 40px;
+                    height: 40px;
+                }
+            }
+        }
+    }
 }
