@@ -31,7 +31,6 @@ async function fetchData() {
 function setNewlocalStorage(defaultData) {
 	console.log(defaultData)
 	localStorage.setItem('UserData', JSON.stringify(defaultData.UserData))
-	localStorage.setItem('LoginUser', JSON.stringify(defaultData.LoginUser))
 	localStorage.setItem('Recommended', JSON.stringify(defaultData.Recommended))
 	localStorage.setItem('Posts', JSON.stringify(defaultData.Posts))
 }
@@ -41,7 +40,6 @@ function renderit(id, html) {
 }
 
 function isLike(isIt) {
-	debugger
 	if (isIt) {
 		return "heart-69-64.png"
 	} else {
@@ -49,31 +47,51 @@ function isLike(isIt) {
 	}
 }
 
+function returnComments(Current, UserData) {
+
+	htmlComment =`<h3>${UserData[Current.CommentBy].userName}</h3>`+`<h4>${Current.Comment}</h4>`
+	
+	return htmlComment
+}
+
+
+function postComment(index) {
+	const UserData = JSON.parse(localStorage.getItem("UserData") || "[]");
+
+	commentinput = document.getElementById("commentin" + index)
+	commentbnt = document.getElementById("commentbnt" + index)
+	commentsFromPost = document.getElementById("commentsFromPost" + index)
+	htmlString = `<h3>${UserData[0].userName}</h3><h4>${commentinput.value}</h4>`
+
+	renderit(commentsFromPost, htmlString)
+	
+	addCommentDB(commentinput.value , index);
+
+	commentinput.value =''
+}
+
+function addCommentDB(comment, index) {
+	let PostsData = JSON.parse(localStorage.getItem("Posts") || "[]");
+	
+	PostsData[index].Comments.push({CommentID: PostsData[index].Comments.length, CommentBy: 0, Comment: `${comment}`})
+
+	localStorage.setItem('Posts', JSON.stringify(PostsData))
+}
+
 function loadingStorys() {
 	const LoopData = JSON.parse(localStorage.getItem("UserData") || "[]");
 	console.log(LoopData)
 	
-	for (let index = 0; index < LoopData.length; index++) {
+	for (let index = 1; index < LoopData.length; index++) {
 		renderit(storys, `<div><img src="${LoopData[index].profileimg}" alt="" srcset=""><h5>${LoopData[index].userName}</h5></div>`)
 	}
 }
 
 function LoadUser() {
-	const LoopData = JSON.parse(localStorage.getItem("LoginUser") || "[]");
+	const LoopData = JSON.parse(localStorage.getItem("UserData") || "[]");
 	console.log(LoopData)
 	
-	for (let index = 0; index < LoopData.length; index++) {
-		renderit(LoginUser, `<img src="${LoopData[index].profileimg}" alt=""><div><div><p>${LoopData[index].userName}</p><h6>User</h6></div><a>Switch</a></div>`)
-	}
-}
-
-function LoadUser() {
-	const LoopData = JSON.parse(localStorage.getItem("LoginUser") || "[]");
-	console.log(LoopData)
-	
-	for (let index = 0; index < LoopData.length; index++) {
-		renderit(LoginUser, `<img src="${LoopData[index].profileimg}" alt=""><div><div><p>${LoopData[index].userName}</p><h6>User</h6></div><a>Switch</a></div>`)
-	}
+	renderit(LoginUser, `<img src="${LoopData[0].profileimg}" alt=""><div><div><p>${LoopData[0].userName}</p><h6>User</h6></div><a>Switch</a></div>`)
 }
 
 function LoadRecommended() {
@@ -92,8 +110,27 @@ function LoadPosts() {
 	console.log(LoopData)
 	console.log(LoopDataUser)
 
-	for (let index = 0; index < LoopData.length; index++) {
+	let index
+
+	for (index = 0; index < LoopData.length; index++) {
 		createtionDate = new Date(LoopData[index].createtAt).toLocaleDateString("de-DE")
+		
+
+		let comment
+		console.log(comment)
+
+		LoopData[index].Comments.forEach(element => {
+			Current = index
+			if (Current === index) {
+				if (comment === undefined) {
+					comment = ""	
+				}
+				comment += returnComments(element, LoopDataUser)
+			} else {
+				comment = returnComments(element, LoopDataUser)
+			}
+		})
+
 		renderit(Posts, `
 			<article>
 				<section class="mainContentImgsHead">
@@ -118,14 +155,13 @@ function LoadPosts() {
 					<h4 id="${"likeCounter" + index}">Liked ${LoopData[index].Likes} Times</h4>
 				
 					<section>
-						<article>
-							<h3>User</h3>
-							<h4>Meningless Bs</h4>
+						<article id="commentsFromPost${index}">
+						${comment}
 						</article>
 					</section>
 					<div>
-						<input type="text" name="comment" id="commentin">
-						<input type="button" name="comment" value="dwada" id="commentBnt">
+						<input type="text" name="comment" id="commentin${index}">
+						<input type="button" onclick="postComment(${index})" name="comment" value="Comment" id="commentBnt${index}">
 					</div>
 				</div>
 			</article>
